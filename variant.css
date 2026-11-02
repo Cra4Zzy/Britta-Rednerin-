@@ -1,0 +1,67 @@
+/* Eine eigenständige, bewegte Variante der bestehenden Gestaltung. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+[data-reveal]{opacity:1;transform:none}
+.js-motion [data-reveal]{opacity:0;transform:translateY(28px)}
+.js-motion [data-reveal].visible{opacity:1;transform:none}
+.hero:before,.hero:after{border:0;background:radial-gradient(circle,rgba(170,199,174,.11),transparent 67%);filter:blur(2px)}
+.portrait-card{border-radius:47% 47% 22px 22px;}
+.portrait-card img,.gallery-grid img,.about-photo img{transition:transform 1.1s var(--motion-ease)}
+@media(hover:hover){.portrait-card:hover img,.gallery-grid figure:hover img,.about-photo:hover img{transform:scale(1.045)}}
+.ceremony-card{transition:transform .6s var(--motion-ease),box-shadow .6s var(--motion-ease)}
+@media(hover:hover){.ceremony-card:hover{transform:translateY(-8px);box-shadow:0 26px 50px rgba(27,42,33,.12)}}
+.ceremony-card .card-content a{border:0;padding:10px 15px;background:rgba(255,255,255,.35);border-radius:999px;transition:background .25s}
+.ceremony-card--farewell .card-content a{background:rgba(255,255,255,.12)}
+.ceremony-card .card-content a:hover{background:rgba(255,255,255,.55)}
+.ceremony-card--farewell .card-content a:hover{background:rgba(255,255,255,.23)}
+/* Ein Ablauf aus versetzten kleinen Kapiteln statt einer Liste aus Linien. */
+.process{overflow:hidden}
+.process-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;border:0;align-items:stretch}
+.process-list article{display:flex;flex-direction:column;gap:0;min-height:265px;padding:26px;border:0;border-radius:25px;background:rgba(255,255,255,.53)}
+.process-list article:nth-child(even){transform:translateY(25px);background:#c4d2c1}
+.process-list article>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#263c31;color:#fff;font-size:10px;margin-bottom:48px}
+.process-list h3{font-size:clamp(25px,2.3vw,34px);line-height:1.04;margin-bottom:13px}
+.process-list p{font-size:14px;line-height:1.65}
+.js-motion .process-list article:nth-child(even){transform:translateY(45px)}
+.js-motion .process-list article:nth-child(even).visible{transform:translateY(25px)}
+/* Fragen als kleine, unterschiedlich getönte Gesprächskarten. */
+.faq{background:#f2f1e9;grid-template-columns:minmax(220px,.6fr) minmax(0,1.4fr);gap:7vw;align-items:start}
+.faq-copy{position:sticky;top:125px}
+.faq-copy>p:last-child{line-height:1.7;max-width:23ch}
+.faq-copy:after{content:'?';display:grid;place-items:center;width:76px;height:76px;margin-top:42px;border-radius:50% 48% 44% 50%;background:#c8d6c4;color:#253a2d;font-family:var(--serif);font-style:italic;font-size:52px;transform:rotate(-10deg)}
+.faq-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;border:0;align-items:start}
+.faq details{border:0;border-radius:23px;background:#fff;overflow:hidden;transition:background .3s,transform .3s}
+.faq details:nth-child(2),.faq details:nth-child(3){background:#dce6d9}
+.faq details[open]{background:#263c31;color:#fff}
+.faq summary{min-height:112px;align-items:flex-start;gap:12px;padding:25px;font-family:var(--serif);font-size:clamp(22px,2vw,29px);font-weight:400;line-height:1.13}
+.faq summary:focus-visible{outline:3px solid #75977b;outline-offset:-5px;border-radius:23px}
+.faq summary span{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:#e1eade;color:#253a2d;line-height:1;font-family:Arial,sans-serif;font-size:23px}
+.faq details[open] summary span{background:#b7cdb6}
+.faq details p{padding:0 25px 26px;color:inherit;opacity:.85;font-size:15px}
+.faq details p a{text-decoration:underline;text-underline-offset:3px}
+/* Kontakt wie eine persönliche Karte, mit klar erkennbaren Eingabefeldern. */
+.contact-grid{align-items:start}
+.contact-card{border:0;padding:25px 0;gap:18px}
+.contact-card>span{display:inline-block;padding:9px 14px;border-radius:999px;background:#354b3e;color:#eef5eb}
+.contact-card a{border:0;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:rgba(183,205,182,.45);text-underline-offset:6px}
+.contact-form{padding:clamp(22px,3.5vw,48px);border-radius:28px;background:#f0f2e9;color:#1d2e23;gap:22px;box-shadow:0 22px 60px rgba(0,0,0,.15)}
+.contact-form label{color:#405449;font-size:11px;letter-spacing:.06em;line-height:1.4}
+.contact-form input,.contact-form select,.contact-form textarea{min-width:0;border:1px solid transparent;background:#fff;color:#172a1e;border-radius:12px;padding:15px;font:inherit;font-size:15px;line-height:1.4;outline:none}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#6b7970;opacity:1}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:#527d5b;box-shadow:0 0 0 3px rgba(82,125,91,.22)}
+.contact-form button{background:#253d30;color:#fff;justify-content:center}
+.contact-form button:hover{background:#405c48}
+.contact-form small{color:#506054;font-size:12px;line-height:1.5}
+.contact-form small a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1050px){.process-list{grid-template-columns:repeat(2,minmax(0,1fr))}.process-list article:nth-child(even),.js-motion .process-list article:nth-child(even).visible{transform:none}.js-motion .process-list article:nth-child(even){transform:translateY(28px)}}
+@media(max-width:760px){.faq{grid-template-columns:1fr;gap:35px}.faq-copy{position:static}.faq-copy:after{width:55px;height:55px;margin-top:23px;font-size:39px}.faq-list{grid-template-columns:1fr;gap:10px}.faq summary{min-height:0;padding:21px;font-size:24px;align-items:center}.faq details p{padding:0 21px 23px}.process-list{gap:12px}.process-list article{min-height:225px;padding:20px}.process-list article>span{margin-bottom:30px}.process-list h3{font-size:25px}.contact-form{grid-template-columns:1fr}.contact-form label:nth-child(4){grid-column:auto}.contact-form button{width:100%}.contact-card{padding:0}.contact-card a{font-size:clamp(20px,6vw,29px)}}
+@media(max-width:380px){.process-list{grid-template-columns:1fr}.process-list article{min-height:0}.process-list article>span{margin-bottom:22px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js-motion [data-reveal]{opacity:1;transform:none!important}}
+
+/* Ablauf auf dem Handy: eine großzügige Karte pro Schritt. */
+@media (max-width:760px){
+  .process-list{grid-template-columns:minmax(0,1fr);gap:14px}
+  .process-list article{min-width:0;min-height:0;padding:clamp(22px,6vw,30px);border-radius:22px}
+  .process-list article>span{width:40px;height:40px;margin-bottom:22px;font-size:12px}
+  .process-list h3{font-size:clamp(27px,7.2vw,34px);line-height:1.12;margin:0 0 12px;overflow-wrap:anywhere}
+  .process-list p{max-width:42ch;font-size:16px;line-height:1.65;overflow-wrap:break-word}
+}
